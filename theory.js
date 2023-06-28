@@ -57,14 +57,26 @@
   - transform: scale() will change the size of the element
   - z-index specifies which one appears on top if two things are on top of each other.
   - animation-fill-mode: backwards; will apply the styles of the 0% before the code is styled.
-  -
-  -
-  -
+  
 
 
   _______________________________________________________________________________
 
 
+  SECTION 3: HOW CSS WORKS
+
+  Three Pillars of HTML, CSS
+  - Responsive Design: Fluid Layouts, media queries, correct units, repsonsive image, etc.
+  - Maintainable and Scaleable code
+  - Web performance
+  
+  How CSS Works Behind the Scences
+  - Loaded html, parses html, which builds the dom, and loads the css at the same time
+  - Look at the charts in the notes.
+  -
+  -
+  -
+  -
 
 
 
