@@ -73,10 +73,61 @@
   How CSS Works Behind the Scences
   - Loaded html, parses html, which builds the dom, and loads the css at the same time
   - Look at the charts in the notes.
-  -
-  -
-  -
-  -
+  
+  How CSS is Parsed (1): Cascade & Specificy
+  - Cascade: proccess of cimbining different stylesheets and resolving conflicts between different CSS rules and declarations, when more than one rule applies to a certain element.
+  - Importance > Specificity > Source Order
+  - (User importance, author importantce, author, user, default browser)
+  - If everything has the same importance, then it goes down to the specificty: (Inline, ID's, Classes (Pseudo classes count also), Elements)
+  Ex: nav#nav div.pull-right .button would be (0, 1, 2, 2) is the specifcity.
+  - The higher one is applied by the look from left to right; the value of the winning decleation is the cascasded value.
+  - If is there still a tie between importance and specificy, then the order matters: the last one is used.
+  - The universal selector has no specificy (0,0,0,0)
+  - Rely more on specificty than the order of the selectors. 
+
+  How CSS is Parsed Part (2): Value Processing
+  - Some properties have inital values. 
+  - Font-size (root) has a browser default of 16px.
+  - Rem unit is always computed through the root size.
+  - How units are comverted from relative to abs. px:
+  - Percentages:
+    - ex: font-size: 150%, that text has a font-size 150% larger than the parent elements font-size.
+    - ex: % lengths: padding: 10% is 10% of the parent's width.
+  - Font-based
+    - em (font): reference is the parent computed font-size
+    - em (length): reference is the current element computed font-size.
+    - rem: root computed font-size.
+  - Viewport-based
+    - vh: 1% of viewport height
+    - vw: 1% of viewport width
+  
+    How CSS is Parsed Part (3): Inheritance
+    - Some properties are inherited, while some are not.
+    - If a parent container has a value that is not declared on the child and inheritable, it is passed down to the child.
+    - With that said, the value that is passed down is the computed value.
+    - For example, line-height: 150% of font-size: 20px on the parent is used after computed, not 150% of the child's font-size.
+    - Properties related to text are inherited.
+    - Inherit keyword forces inheritance on a certain property.
+    - Initial keywordresets a property to inital value.
+
+    Converting px into rem
+    - Use percentages for converting font-sizes.
+    For example, html { font-size: 62.5% == 1rem == 10px}
+    - Set the box-sizing on the body and inherit through the universal selector.
+    
+    How CSS renders the website
+    - 1. The Box Model: by setting box-sizing to border-box, the total width and height = specified.
+    - 2. Box-Types: block, inline-block, inline
+    - 3. Positioning Scheme: normal, floats, abs. positioning
+    - 4. Stacking-Contexts: z-index
+    
+    CSS Archetecutre, Components, BEM
+    - Divide pages into modular building blocks components, that are reusable across a project. 
+    - Use meaningful class names. (block element modifer). (block__element__modifer)
+    - 7-1 Pattern: 7 different folders for partial sass files, and 1 main sass file to importat all other files into a complied css style sheet.
+    Ex: base, componenets, layout, pages, themes, abstracts, vendors, etc.
+    -
+    -
 
 
 
