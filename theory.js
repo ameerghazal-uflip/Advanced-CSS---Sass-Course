@@ -126,10 +126,82 @@
     - Use meaningful class names. (block element modifer). (block__element__modifer)
     - 7-1 Pattern: 7 different folders for partial sass files, and 1 main sass file to importat all other files into a complied css style sheet.
     Ex: base, componenets, layout, pages, themes, abstracts, vendors, etc.
-    -
-    -
+    
 
 
+  _________________________________________________
+
+  SECTION 4: INTRODUCTION INTO SASS AND NPM
+
+  What is Sass?
+  - Extenstion of CSS that adds power and elegance to the basic language.
+  - Write Sass code into multiple files, use a compiler, and it converts all our code into css. 
+  - Variables: reusable values such as color, font-sizes, spacing, etc.
+  - Nesting: nest selectors inside of one another.
+  - Operators: for mathemtical operations
+  - Partials and Imports: to write css in different files and import them all into one.
+  - Mixins: reusable css code.
+  - Functions: they produce a value that can be used.
+  - Extends: make different selectors inherit declerations that are common to all of them.
+  - Control directives: for complex code with conditionals and loops.
+  - Sass syntax does not use curly braces, but SCSS syntax is sassy css, which is the exact same thing with curly braces.
+
+  First Steps w/ Sass: Variables & Nesting
+  - Comments work the same as JS with double slashes.
+  - We can create variables in Sass by using the "$" along with the variable name. We can re use the variable name throughout the code.
+  - Ex: $color-primary: #000;
+  - With sass, we can use nested selectors.
+  - For example,
+    . nav {
+      .li {
+        ...
+
+        &:first-child {
+        }
+      }
+    }
+  - When using pseudo childs & pseudo elements, we need to repeat the path by using "&". It writes the path up until the current point.
+  - The complied css code changes it back to normal, but we don't need to do all of that.
+  - There is no limits for the nesting.
+  - We can use everything for variables; for example, $width-btn: 90px;
+  - We can use built in sass functions for many things; for example, the background-color: darken(color, percentage), or lighten(color, percent).
+
+  First Steps w/ Sass: Mixins, Extends, and Functions
+  - By creating a mix-in, we can use it anywhere, similar to variables or functions.
+  - Ex: @mixin hidden { ... } and to use it: @include hidden;
+  - Also, we can pass in arguments while using mixins. For example, if we create a mixin for properties that are used multiple times, we can include an parameter that will change the color based on the argument.
+  - Ex: @mixin styl($color)
+  - We can also use functions in Sass. These are the same thing as javascript.
+  - Ex: @function name(arguments...) { @return...}
+  - We can also use extends. They function, in part, as the opposite of mixins.
+  - Simply use the % followed by a placeholder name. What will happen is that anywhere we extend the place holder, in the final code, the class that extends it will also be replaced with it.
+  - Ex: 
+    %btn-placeholder {
+      ......
+    }
+    .btn-main {
+      @extend %btn-placeholder;
+    }
+  - The final code would make both of these .btn-main.
+  - Only use extends for things that are inherintly related. Otherwise, use mixins.
+
+
+
+  A brief introduction into the command line
+  - ls: to see the content of the folder.
+  - cd nameOfFolder: moves to the folder
+  - cd .. : moves back in the folder strucutre
+  - clear: clears it
+  - mkdir js: creates a new directory / folder
+  - edit fileName.html fileName.js (etc.)
+  - copy fileName .. (copies the file into the folder above).
+  - move fileName .. (moves the file into the folder above).
+  - del fileName (removes the entire file, no recycle, it is gone)
+  - we can stack different files.
+  -devDependices are just for dev to run, while dependencies more important.
+  - --save-dev is for devD, while --save is for dep
+  - By using npm install (the program looks at the packagae.json files w/ the dependcies & create the node_moduels from there, that is why we can always delete them)
+  - -g: global
 
 
 
