@@ -204,5 +204,38 @@
   - -g: global
 
 
+  ___________________________________________
+
+  SECTION 5: Natours Project Part 2
+
+  Converting CSS to Sass
+  - Remeber, the "&" copies the path up to the point. For example, &__text (would be header__text)
+  - All we will do is seperate the code into 7 different scss files. From there, we will use our main.scss file and import all the other files.
+  - Ex: @import "abstracts/function";
+
+  
+  Reviewing Response Design Principles & Layout Types
+  - max-width is better for fluid layouts.
+  - Use percentages to adapt to the viewport.
+  - Use % for images dimensions.
+  - Use rem.
+  - Use media queries.  
+
+
+  Building a Custom Float Grid
+  - :not() psedudo class taking in an argument. For example, &:not(:last-child) {} will apply the styles to everything but the last child.
+  - calc() css function we can mix units to do mathematical operations.
+  - In sass when using variables inside of a calc function, we have to wrap it inside of a hash and braces.
+  Ex: width: calc((100% - #{$gutter-horizontal}) / 2);
+  - When using floats, the width cloapses to 0. To avoid this, use the clearfix hack.
+  - We can use the attribute selector by using the bracket notation.
+  Ex:  [class^="col-"] {
+  }
+  - By using this notation, we can select all the elements that start with "col-"
+  - ^: starts with col-
+  - $: ends with col-
+  - #: is includied in the class.
+
+
 
 */
