@@ -267,6 +267,34 @@
     Building the Features Section
     - transform: skewY(-7deg); will skew the entire div. This is good for cool shapes.
     - & > * {} will select all of the direct children. 
+    
+
+    Building a Tours Section (1-3)
+    - We can define perspective in css.
+    - We can do this by defining it on the parent element. Use a very large number and wrap the remainng conents into a div.
+    ex:
+    .card {
+      perspective: 150rem;
+      -moz-perspective: 150rem;
+
+      &__side {
+        background-color: orange;
+        height: 50rem;
+        transition: all 0.8s;
+      }
+
+      &:hover &__side {
+        transform: rotateY(180deg);
+      }
+    }
+    - backface-visibilty: hidden. Hides the back part of an element.
+    - Remember, for linear gradients, it is image. (background-image)
+    - We can use the background-image on a div, which can be better than using an image.
+    - background-blen-mode: screen, ... (& more) can be used to blend a gradient over a background url image.
+    - overflow: hidden; hides any overflowing where a child may overflow a parent.
+    - box-decoration-break: clone; Adds the correct spacing with line managment. This one is verid.
+    - &nsbp; is used for representing empty spaces.
+
     -
 
 
