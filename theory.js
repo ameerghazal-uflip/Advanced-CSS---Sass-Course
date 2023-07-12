@@ -237,5 +237,40 @@
   - #: is includied in the class.
 
 
+  Building an About Section (Part 1-3)
+  - by using -webkit-background-clip: text, we make it so the background only occupies the text area.
+  - From there, we can change the color to transparent to make the gradient apply.
+  - This will make the text be the color of the gradient. 
+  ex: -webkit-background-clip: text;
+      color: transparent;
+  - transform: skew() takes in degrees
+  ex:  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  ex: display: inline-block;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    color: transparent;
+
+  - Utlility classes have one simple goal to center text.
+  - Emmet extension is very good 
+  - .composition>img.photo.photo2 = <div comp 
+    w/ img with 2 classes trapped inside.
+    - If we want a border with space inside, use an outline. The outline-offsest: .. property allows us to add that space.
+    Ex: outline: 1.5rem solid $color-primary;
+        outline-offset: 2rem;
+
+    - <i></i> can be used for icons.
+
+    Building the Features Section
+    - transform: skewY(-7deg); will skew the entire div. This is good for cool shapes.
+    - & > * {} will select all of the direct children. 
+    -
+
+
+
+
 
 */
