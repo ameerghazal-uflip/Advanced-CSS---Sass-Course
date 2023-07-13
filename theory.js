@@ -290,12 +290,38 @@
     - backface-visibilty: hidden. Hides the back part of an element.
     - Remember, for linear gradients, it is image. (background-image)
     - We can use the background-image on a div, which can be better than using an image.
-    - background-blen-mode: screen, ... (& more) can be used to blend a gradient over a background url image.
+    - background-blend-mode: screen, ... (& more) can be used to blend a gradient over a background url image.
     - overflow: hidden; hides any overflowing where a child may overflow a parent.
     - box-decoration-break: clone; Adds the correct spacing with line managment. This one is verid.
     - &nsbp; is used for representing empty spaces.
 
-    -
+    Building the Stories Section (1-3)
+    - <figure></figure> is good for an image with a caption. ex: q/a section
+    -  With the shape outside, we can deterimine where the content goes outside of the circle. From there, to actually make it into a cirle, use the clip-path: cirle() property with the same numbers.
+    Ex: -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    - backface-visibility: hidden; is used for animation glithces.
+    - filter: ...; can filter anything. I used this alot when editing the opacity. We can add blurs, brigtness, change things, etc.
+    - ex: filter: blur(3px) brightness(80%);
+    - <video></video> is a new html 5 element for creating a video in the background.
+    - <source> is to specify the video attributes.
+    Ex:
+    <video class="bg-video__content">
+            <source src="img/video.mp4" type="video/mp4" autoplay muted loop />
+            <source
+              src="img/video.webm"
+              type="video/webm"
+              autoplay
+              muted
+              loop
+            />
+            Your browser is not supported!
+          </video>
+
+    -  object-fit: cover; allows element to keep their aspect ratio while fitting the screen. This is similar to background-size: cover, but for videos & html elements.
+    - Remember, overflow: hidden; is great for these types of things.
+
+
 
 
 
