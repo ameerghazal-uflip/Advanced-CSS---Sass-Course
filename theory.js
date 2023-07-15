@@ -236,6 +236,42 @@
   - $: ends with col-
   - #: is includied in the class.
 
+   <!-- <section class="grid-test">
+      <div class="row">
+        <div class="col-1-of-2">Col 1 of 2</div>
+        <div class="col-1-of-2">Col 1 of 2</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-1-of-3">Col 1 of 3</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-2-of-3">Col 2 of 3</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-2-of-4">Col 2 of 4</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-3-of-4">Col 3 of 4</div>
+      </div>
+    </section> -->
+
 
   Building an About Section (Part 1-3)
   - by using -webkit-background-clip: text, we make it so the background only occupies the text area.
@@ -322,7 +358,59 @@
     - Remember, overflow: hidden; is great for these types of things.
 
 
+    Building the Booking Section (1-3: Form)
+    -background-size: ..%, we can use percentages also.
+    - We can add more values to the lienar gradients to make them cooler. For example, the percentage to see how it takes up the box.
+    Ex: background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rbga($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+    - Input elements do not automatically inherit the font-family. So, we can use the inherit keyword for it. & same with colors/
+    - :focus pseudo class if for people who tab alot to get across the screen.
+    - ::-webkit-input-placeholder is a pseudo element that can be used to style input placeholders. 
+    - We can also style invalid classes. For example, an email box using a form which checks if the input has a valid email address. 
+    -Ex: :focus:invalid, use this pseduo class for such.
+    *- General sibling selector: ~
+    *- Adjacent sibling selector: + (sibling right after)
+    - The input needs to be before the label when using the sibling selector
+    - :placeholder-shown psuedo class is if the placeholder is used.
+    ex: 
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+    - We can create small radio buttons and build our own buttons with css.
+    ex: 
+    <input
+      type="radio"
+      class="form__radio-input"
+      id="large"
+      name="size"
+      />
+      <label for="large" class="form__radio-label"
+      >Large tour group</label>
+    - For more than one of these, we apply the same name attribute to both to identify the switch.
+    - For creating "myown" button, connect the input and the label and from there, create an empty span element inside the label, style the span element and position is properly. Use the after pseudo element (*specify content & display)
+    - :checked pseduo class will check if an input box has been checked. From there, if th checked class is on, sibling select the label and grab the direct button child with the after psuedo element.
+    Ex: &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+    - When using utility classses, use the important keyword.
+    
 
+    Building a Footer 
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
 
 
 
