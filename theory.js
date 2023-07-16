@@ -402,17 +402,56 @@
     - When using utility classses, use the important keyword.
     
 
-    Building a Footer 
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+  Building a Navigation (1-3)
+  - position: fixed; is for sticky.
+  - radial-gradient() ... will take in values and start in the middle and expand outwards.
+  - For example,  background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    ); will be a circle & inside will be light & outside will be dark.
+  - We can add a transition by using the backgorund image gradients again, setting the background size to double (200%) and, when hovered, change the position to 100%
+  - We can secerlty hide something by setting the opacity to 0 and the width to 0.
+  - Using the :checked pseduo class & the silbling selector, scale up the background & display the words.
+  ex: 
+   &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  } 
+  - Ex: transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  - cubic-beizer() can be used for custom ease in-out-etc. animations.
+  - We can use the checkbox hack for the x animiation.
+  - Simply make the middle bar transparent.
+  -transform-orign: ..., we can shift the origin of the transformation. Typically, rotations are from the center, but if we want, we could simply rotate from the left or the right.
 
 
+  Building a Pure CSS Popup
+  - We can use the column properties for seperating columns.
+  Ex: 
+     column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+  - The css will balance the height of the columns and the column rule is like a border-right.
+  - hyphens: auto; will automatically add hypens to texts if the text begins to break (or is resized).
+- the hypen property only works by setting the lanugage on the html tag (e.g. <html lang="en"></html>)
+  - We should not add webkit prefixes ourselves. It is better to find an online tool for them.
+  - For anchors and targets, what we can do is add an id to something, and follow it with a #id on the button (e.g., #section-tours). When the button is clicked, we will go to that section of the page. 
+  - :target psudo class is based on the hash at the top. So, if we hit the button that leads us to the hash (e.g., #popup) we can do .popup:target {} as it becomes the target. The target becomes the entire element.
+  - We can implement a close button which will go to a different href. In doing this, the target class no longer applies to the pop up so it goes back to its default styles and is hidden.
+  - 
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  - these are for hiding, etc.
 
 
 */
