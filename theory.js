@@ -539,7 +539,63 @@
   - Resolution switching: decrease image resoultion on a smaller screen.
   - Density switching: half the image res on a @1x screen (high res screen use @2x screens)
   - Art-direction: different image on smaller screen.
+  
+  Responsive Images in HTML (Art Directiom, Density Switching)
+  - CSS is background img, while html is a <img> tag.
+  - Density Switching: swtich the src attribute on <img> tags to srcset and give it 2 different images. 
+  - What this will do is the browser will select whichever one is best in the situation. 
+  - Ex: <img
+          srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" />
+  - Seperate both by a comma and specify 1x or 2x.
+  - <picture></picture>, is used for Art Direction which needs 0 or more <source srcset="" media=""> and an <img srcsec="">
+  - Art Direction: it is used for switching images based on the viewporth width.
+  - With these, we can define media queries
+  Ex:
+
+  <picture class="footer__logo">
+          <source
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            media="(max-width: 37.5em)"
+          />
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+          />
+        </picture>
+
+
+  Responsive Images in HTML (Resolution Switching)
+  - We can simulute different pixel ratios in the dev tools.
+  - It is a good practice to still include the src attribute on the images regardless of which approach we take because some browsers may not support srcset. 
+  - Resolution Switching: define the srcset="img1 width, 1mglarge width" with the image path and the width; then, define the sizes="(max-width:...) vw" with the media query width followed by the viewport width, alt, class, and src.
+  Ex: 
+  <img
+    srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+    alt="Photo 1"
+    class="composition__photo composition__photo--p1"
+    src="img/nat-1-large.jpg"
+  />
+
+  - Doing so accounts for both density switching and res. switching.
+  
+
+  Responsive Images in CSS
+  - Simply write media queries. 
+  - For example, 
+  Ex:   
+  @media (min-resolution: 192dpi) and (min-width: 600px), (min-width: 2000px) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
+  - We can extend media queires using the 'and' keyword.
+  - We can use a comma "," to imply an "or" statmenet through media queries. 
   -
+
 
   
 */
