@@ -594,7 +594,56 @@
   }
   - We can extend media queires using the 'and' keyword.
   - We can use a comma "," to imply an "or" statmenet through media queries. 
-  -
+  - -webkit-min-device-pixel-ratio: 2; is the same as the 192 above, but the version for safari
+  
+
+  Testing for Browser Support with @supports
+  - Check CANIUSE.com before using a modern css property in production.
+  - @supports () {} will check if what is given is supported, and if so, it will apply the styles. This is event degredation 
+  Ex:
+    @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
+  - Some things need -webkit- prefixes, so make to check these.
+  - backdrop-filter: blur(10px) will blur the background rather than having to change the background color. 
+  - @supports queries are very important for testing breaks. Not all browsers work the same, so they are very important.
+
+  Setting up a Simple Build Process with NPM Scripts
+  - npm i concat: installs the concat installment which allows us to concatenat css files & more.
+  - npm i prefix is for the prefixes. 
+  - Here are some good tasks and save devs for the future
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "author": "Ameer G",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concat": "^1.0.3",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.1.0"
+  }
+  
+  Natours Final Considerations
+  - ::selection {} psuedo class deals with highlights on a page.
+  - For example, ::selection {color:red, background-color: green} would make the text red and the highlight green opposed to the normal.
+  - Also, for media queries, use the only screen tag so that they only apply to screens, not if the page is attempted to be printied. 
+  - <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  - This html tag is very important because it tells the browser to open the page subject to the viewport width.
+  - only screen and (hover: none) is a media query option which will change the styles if the device does not support hovers. For example, an ipad without a mouse. 
+  
+  
 
 
   
