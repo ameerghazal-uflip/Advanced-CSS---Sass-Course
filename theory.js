@@ -454,4 +454,92 @@
   - these are for hiding, etc.
 
 
+  _____________________________________________________________________________
+
+
+  SECTION 6 NATOURS ADVANCED RESPONSIVE DESIGN
+  
+  Mobile First vs. Desktop First Breakpoints
+  - min-width: for mobile (is the current query >= 600px)
+  - max-width: for desktop (maxiumum width at which the media query still applies). It asks the questin, is (width <= 600px) or diff.
+  - Situations depend, but desktop starting is typically better due to over simplifcation. 
+  - Regardless, keep both in mind.
+  - Selecting breakpoints
+    - bad: choosing different phone screen sizes.
+    - good: group the most used device widths (laptop, tablets, etc)
+    - perfect: Ignore all devices and just add breakpoints when the device breaks. This can be hard, but it can be very helpful.
+  - Check the notes for the chart on breakpoints.
+  - For the largest screen, use min-width
+
+  Using the Power of Sass Mixins to write Media Queries
+  - The best way to write media queries in sass is by creating a mixin, defining the media querey breakpoint width, and inside it, simply use the @content call. 
+  - @content: will accept the value from the included tag.
+  - When wanting to use the mixin, media query, simply use the @include mixinName and define the content.
+  - This approch is still not the best approch.
+  - @if: is basically an if statment
+  - em's are the best options for media queries (1em = 16px)
+  - The best option for media queries is to create a large mixin with an @if statment & in the media query, use the @content. 
+  - Using it like this makes it much easier to use elsewhere.
+
+  Ex: 
+    @mixin respond($breakpoint) {
+      @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+          @content;
+        }
+      }
+
+      @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+          @content;
+        }
+      }
+
+      @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+          @content;
+        }
+      }
+
+      @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {
+          @content;
+        }
+      }
+    }
+
+    ex:   // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 80%; //1rem = 12px, 12/16
+  }
+  - The order of the queries matter, so be careful. The last one applies. For example, if both are under 900px, the most recent one will apply. 
+  - We can combat this by using min-width and max-width, or just by watching the order. 
+  - For mobile first, it is the other way around. 
+
+
+
+  Writing Media Queries: Base, Typography, and Layout, etc.
+  - Order: Base + Typograhpy > general layout + grid > page layout > components
+  - Sizzy is a great way to check different sizes. 
+  
+  Responsive Images
+  - Serve the right image to the right screen size. 
+  - Responsive images are very advanced.
+  - Resolution switching: decrease image resoultion on a smaller screen.
+  - Density switching: half the image res on a @1x screen (high res screen use @2x screens)
+  - Art-direction: different image on smaller screen.
+  -
+
+  
 */

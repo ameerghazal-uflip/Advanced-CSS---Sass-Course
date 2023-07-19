@@ -12,3 +12,48 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// @mixin respond-phone {
+//   @media (max-width: 600px) {
+//     @content;
+//   }
+// }
+
+// $breakpoint argument choices:
+// -phone
+// -tablet
+// tablet-land
+// big desktop
+// Order: Base + Typograhpy > general layout + grid > page layout > components
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+// 0-600: Phone
+// 600-900: Tablet Portrait
+// 900-1200: Tablet Landscape
+// [1200-1800] is where our normal styles apply
+// 1800px + : Big desktop
