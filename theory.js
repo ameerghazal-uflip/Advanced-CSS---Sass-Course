@@ -704,10 +704,68 @@
 
     Building the Overall Layout
     - By using max-width: ... we specify the width we want if possible. If it is not possible, the browser will simply utilze 100% of the avaliable width.
-    -
-    -
-    -
-    -
+    
+    Building the Header (1-3)
+    - Icon fonts fail more often than normal. Svg's are better to use.
+    - <svg></svg> stands for scable vector graphics.
+    - sprite file is a file that contins all the svgs.
+    -  <svg class="search__icon">
+            <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+          </svg>
+    - This is the best way for using svg's. Using the xlink is only applicable for web servers.
+    - We can style SVG's by using the width and height.
+    - > * selects all of the direct children.
+    - fill: ... is the property to change the color of svg's.
+    - fill: currentColor; and currentColor is the color of the parent element, so it basically inherits it. This is a very useful feature with, for example, hovers and links. 
+    - transform-origin: bottom; this is a property used to specify where the transformation starts from. 
+    - We can specify different types of transitions; for different types of items. For example, transition: transform 0.2s, width 0.4s 0.2s;
 
+
+    Building the Navigation (1-2)
+    - more scss
+
+    Building the Hotel Overview (1-2)
+    - margin-right:auto; is a good trick when we need extra space while using flex-box. (can be used with margin-left:auto aswell)
+    - svg's are treated like inline elements, so sometimes they have an automatic spacing.
+    -   border-bottom: 1px solid currentColor;
+    - Again, current color is a very helpful property.
+    - @keyframes are frames that we can create.
+    - animation: pulsate 1s infinite; the infinite state will make an animation infinite. 
+
+
+    Building the Description Section (1-2)
+    - :last-of-type is a pseudo class of the last type (e.g. p element)
+    - For older browsers, use the background-image property to use an svg.
+    - For newer browsers, use masks which defines an area where we can look through the element
+    - Ex: mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+    - box-sizing: content-box; will change the boxsizing back to the default, which, if a border is added, it is on top of the width and height, rather than included.
+
+    Building the User Reviews Section
+    - For css entites, similar to html enties, we use the iso numbers. 
+    - Ex: "\201C"
+    - z-index only works by setting the position. 
+    - ex:  z-index: 2;
+    position: relative;
+    - overflow: hidden; is very good for abs. positioning and hiding certain elements.
+
+    Media Queries (1-2)
+    - Simply just put the media queries inside of the css, for example,
+     @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+    - Don't forget the feature supports query so certain things in different browsers.
+    - For example,
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
+    -
   
 */
