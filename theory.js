@@ -643,7 +643,47 @@
   - This html tag is very important because it tells the browser to open the page subject to the viewport width.
   - only screen and (hover: none) is a media query option which will change the styles if the device does not support hovers. For example, an ipad without a mouse. 
   
-  
+  _______________________________________________________________________________________
+
+  SECTION 7: TRILLO PROJECT
+
+  - Main axis is the horizonatal axis, and cross axis is the vertical axis. We can flip these.
+  - Container Properties:
+    - flex-direction: row, column, row-reverse, etc.
+    - flex-wrap: (defines if the flex items should wrap into a new line if no space)
+    - justify-content: alignment
+    - align-items: alignment (vertical, if not switched)
+    - align-content: multiple rows or containers.
+  - Item Properties:
+    - align-self: defines how one specific item should position
+    - order: order of the items
+    - flex-grow, flex-shrink, and flex-basis = flex: ...
+    
+
+    A Basic Intro to Flexbox: The Flex Container
+    - row-reverse anc column-reverse: invert the main axis.
+    - justify-content: alignment for the main axis.
+    - space-evenly evenly spaces everything, space-around makes the left and right the same space and the middle double.
+    - align-items: alignment across the cross axis.
+    - baseline aligns the items text to the center, not the containers.
+    - When changing the direction to column, the main-axis is changed, so justify content & align-items are flipped. Just like we have been doing.
+    
+    A Basic Intro to Flexbox: Flex Items
+    - align-self: overrides the align property for one specific container. This is very useful. (e.g. align-self: flex-end)
+    - Flex-box orders all the elements by their order number, so by making the order negative, it would be the first one. (e.g. order: -1, or order: 1 for the end)
+    - flex-grow: 1 occupies the entire space that they can. It gives items the largest space to grow. By setting flex-grow: 2 or something else on specific containers will make it take double the size. flex: 1 (or any #) is the short hand for just flex-grow
+    - flex-basis: we can set the width of a flex-item. This is better than auto setting the width on a flex-item, for example (flex-basis: 20%).
+    - flex-shrink: controls how an element can shrink. The default setting is 1, which allows the element to shrink. By changing flex-shrink: 0, we make it so the item would not shrink (short hand: flex: 0 1 300px)
+    - flex: flex-grow flex-shrink flex-basis; is the short hand for all of them.
+
+    A Basic Intro to Flexbox: Adding More Flex Items
+    - flex-wrap: wrap; will create a newline for items that no longer fit the container size. 
+    - This is good to avoid overflowing. For example, setting a width on a container and then using flex-wrap. 
+    - The default property of flex-wrap is none, so it needs to be changed to wrap to work properly.
+    - align-content: aligns entire rows across the cross axis. For example, align-content: flex-start; moves all the rows to the start, space-between, strech, center, etc.
+    
+    
+
 
 
   
