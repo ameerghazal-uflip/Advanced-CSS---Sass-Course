@@ -683,8 +683,31 @@
     - align-content: aligns entire rows across the cross axis. For example, align-content: flex-start; moves all the rows to the start, space-between, strech, center, etc.
     
     
+    Project Overview
+    - npm install: will install all of the packages in the json folder.
+
+    Defining Project Settings and Custom Properties
+    - CSS variables are applicable. We do not need to use a preprocessor for sass.
+    - They can be manuplated in JS and are inhertient, can cascade, and can be edited in the devtools.
+    - :root {} is the global parent element. All the variables put inside of it will apply to the entire page. The :root pseudo class is like the html class with a higher specifiity.
+    - For personal properties, use --name: ...
+    For example:
+        :root {
+      --color-primary: #eb2f64;
+      --color-primary-light: #ff3366;
+      --color-primary-dark: #ba265d;
+    }
+    - Use the var() function to use the colors.
+    var(--color-primary-light),
+    var(--color-primary-dark);
 
 
+    Building the Overall Layout
+    - By using max-width: ... we specify the width we want if possible. If it is not possible, the browser will simply utilze 100% of the avaliable width.
+    -
+    -
+    -
+    -
 
   
 */
