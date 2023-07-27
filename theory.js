@@ -912,6 +912,12 @@
       - Ex: If we have 8 columns and collapse it to mobile, we would automaticallty have 1 column with 8 rows. This is just an example. 
 
 
+      ______________________________________________________________________
+
+      SECTION 9 NEXTER PROJECT MASTER CSS GRID LAYOUT
+
+      
+
 
 
       */
