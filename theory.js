@@ -824,6 +824,93 @@
       - -1 represents the last column. We can do this instead of hardcoding the end.
       Ex: grid-row: 1 / -1 would span the entire row. 
 
+      Naming Grid Lines
+      - All we have to do is to use the sqere brackets.
+      - For example, grid-template-columns: [header-start] 1fr [header-end box-start] 300px
+      - We can give grid-lines more than one name. [header-end box-start] 100px
+      - Doing so makes it plausible to use them more than once. 
+      - Also, by naming grid-lines, it making the positioning easier.  
+      - Using it works the exact same as the number grid-lines, for example, 
+      gird-row: box-start / box-end.
+      - For repeat functions, we can also name them. Doing so will give each grid line its own specilty.
+      Ex: For example, repeat(3,[col-start] 1fr [col-end]). So, from 1 / 2 it would be [col-start 1] / [col-end 1 col-start 2] and more. 
+        - grid-column: col-start 1 / grid-end
+      
+
+      Naming Grid Areas
+      - grid-template-areas: "head head head head
+                              box box box side
+                              main main main side
+                              foot foot foot foot";
+      - Using grid-template-areas is a way to use a template string. We basically are naming the cells. Doing this makes it very easy to place items. 
+      - To place the item in the template area, use grid-area: ... followed by the area name from the template areas. 
+      Ex: grid-area: box; would place the element over grid-row 2 / 3 and grid-column: 1 / 4
+      - When using the template areas, we need to name all the cells. 
+      - To keep a cell empty, simply put a period (.) in the space of the name.
+      Ex: grid-template-areas: "head . side ."
+      - Very good and straightforward for smaller layouts. 
+
+      Implict Grids vs. Explicit Grids
+      - Implicit Grids: defined in order to fit the content that does not fit in the explicit grid.
+        - 
+        -
+      - Explicit Grids: explicity defined part of the grid 
+        - This is the part of the grid that we specifiy add and define ourselves.
+        - For example, if we define the template rows, or columns. 
+        -
+        -
+      - We can style implict grids by using the grid-auto properites. By using these we can control what the auto rows/columns will look like even if they are not on the page, hence implict. 
+      - grid-auto-row: height, grid-auto-columns: height/width. What th
+      Ex: grid-auto-row: 50px;
+      - Also, implict grids are typically rows, which is set by the grid-auto-flow property. We can change this property in order to make the implict change be columns, reverse columns, etc.
+      Ex: grid-auto-flow: column;
+      - Using these auto added rows and columns is very good for styling without knowing what will be on the page.
+    
+      Aligning Grid Items
+      - align-items: sets things across the column (vertical axis) this is also the same from flex-box. For example, align-items: center; will align it in the track. This property is defaulted to strech, but there are end, start, center, strech, etc. 
+      - justify-items: aligns items across the row axis (horizontally) we align the items within the entire area. This is not in flexbox, in way it behave the same, though. There are other propertys, aswell
+      - align-self: ..., justify-self: ..., also work the same for specific items, which will align the specific item to its own position. This is similar to flexbox.
+      - In flex-box, we only have align-self because it is a 1-d layout. 
+      
+      
+      Aligning Grid Tracks
+      - justify-content: ... (horizontally) will align the entire grid-container. For example, if we have body container with and an inner div all in flex-box, if we use this property we can, for example, center that entire div grid in the body.
+      - This property works the same from flex-box, with space-between, center, space-around, start, end etc.
+      - align-content: ..., the same thing as above, just vertically. it has the exact same properties and everything.
+      - We can center it completely, both vertically and horizontally, displaying the 2d layout. 
+      **- items relates to inside the grid, self relates to cell, and content relates to the entire grid.
+      **- align relates vertically, justify is horizontally.
+      - to get rid of empty cells from the auto placement algo "holes", use the 'dense' keyword on the grid-auto-flow: row dense; property. This will ensure that all the cells are used without any holes.
+      Ex: grid-auto-flow: row dense;
+      
+
+      Using min-content, max-content, and the minmax() function
+      - Instead of using a real unit for the template-rows(columns), we can use the max-content keyword. It will take all the only about of space it needs for the max-content.
+      - max-content keyword attempts to avoid line-breaks.
+      Ex: grid-template-columns: max-content 1fr 1fr;
+      - Also, we have the min-content keyword. It will use the minimum amount of space needed to fit the content. This one uses line-breaks as it tries to cram everything in. Just as wide as nessicary.
+      Ex: grid-template-rows: repeat(2, min-content)
+      - Having max or min are not entierly different, but they can be. 
+      - To avoid overflowing, use the minmax() function. 
+      - minmax() is where we pass 2 values in "at least and at most" values.
+      - We are allowing css grid to size between a range, and from there, css grid will do the job.
+      - Ex: grid-template-rows: repeat(2, minmax(150px, min-content));
+      - We allow the grid to accomadate for the spacing at a minium of 150px.
+      - For exmaple, if we want have a grid-template-column and we want one of the columns to be between 200px and 300px regardless of the size, use the minmax function
+      Ex: grid-template-rows: minmax(200px, 1fr) what this will do is stay at most 1fr, and if smaller, the lowest it will go is 200px.
+      - At the limits about fr's, they will resize to fill what is nessicary rather than overflowing (only at the limit).
+
+
+      Responsive Layouts with auto-fit and auto-fill
+      - Using the auto-fill keyword will automatically create the amount of tracks (columns or rows) that we desire without us having to specifiy. This is good for reponsive layouts.
+      - Ex: grid-template-columns: repeat(auto-fill, 100px), in this example, let's say the width is 1000px and we only have 8 items in the container. The autofill function will still create 10 columns at 100px each to maxize the space for the width. Then, it will put our items in their respective grids. 
+      - Usually, columns are not defined with pixels, so it should not be too much of an issue. Just need to pay-attention
+      - Using the auto-fit keyword will do the exact same thing as the auto-fill keyword; however, it will collapse the remaing tracks (such as 2 in the example) and give them a width of 0. They are not gone, though, they are just collapsed and have a width of 0.
+      - Ex: grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
+      - What auto-fit does after being collapsed with no more space, it will cut a column (row) and create a row (column) in order to maintain the adaptive layout.
+      - This trick with the minmax is very very helpful for adapting to the screen size without using media queries. 
+      - Ex: If we have 8 columns and collapse it to mobile, we would automaticallty have 1 column with 8 rows. This is just an example. 
+
 
 
 
