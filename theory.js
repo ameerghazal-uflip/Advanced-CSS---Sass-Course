@@ -767,5 +767,64 @@
       background-image: none;
     }
     -
-  
-*/
+
+    ____________________________________________________________________________
+
+    SECTION 8: QUICK INTRO TO CSS GRID LAYOUTS
+    - grid-lines are automatically numbered for the number of columns and rows + 1
+    - Items are seperated by a gutter.
+    - grid-cell item in a cell
+    - Many many grid properties.
+    - $*number is a handy trick with emment notatation
+    - grid-template-rows: define the number of rows.
+    - grid-template-columns: define the number of columns. 
+    - Typically, we only need to define the columns 
+    Use the layout devtools for grid.
+    - Column lines and row lines get automatically numbered. For exmaple, with 3 columns, the grid lines would be 1-4
+    - grid-row-gap: row gutter (..px)
+    - grid-column-gap: column gutter
+    - grid-gap: both the row and column gutter
+
+    Getting Familiar with the fr Unit
+    - fr: fractional unit,
+    - repeat(#rows/columns, size); for example, repeat(5, 1fr) would be 5 rows(columns)
+    - We can combine the repeat() function with other normal tracks. For example, repeat(5, 150px) 300px
+    - fr's occupy the space they can occupy. 
+    - 1fr is a fraction of the avaliable space. 
+    - We can treat fr's - in a way - like percentages. For example, grid-template-columns: 1fr 2fr 1fr.
+    - Fr's are very good for responsive layouts.
+    - We can also use percentages for sizing columns or rows, but they do not take the gap into account. 
+
+    Positioning Grid Items
+    - grid-cell is between the row line and column lines
+    Ex: Assume there is a 3x3 matrix (thus 1-4 column lines and 1-4 row lines)
+    - grid-row-start: row-line 2 
+    - grid-row-end: row-line 3 
+    - Using these properties would put it in the middle row of the 3x3 column
+    - grid-column-start: 2
+    - grid-column-end: 3
+    - it would put it in the middle of the matrix.
+    - Short hand:
+      - grid-row: 2 / 3; (display the start and the end in one statment.)
+      - grid-column: 2 / 3;
+    - Using the line dev tools is great for grids. 
+    - Even more short hand:
+      - grid-area: row-start / column-start / row-end / column-end
+      ex: grid-area: 2 / 2 / 3 / 3
+      - this can get confusing. 
+      
+      Spanning Grid Items
+      - We can span over more lines. 
+      - For example, grid-column: 2 / 4;
+      - We can have mutliple items in the same cell. Items can be hidden.
+      - To make something that is hidden move on top, give it a higher z-index.
+      - If items are explcity placed, we cannot just override them without explcitiy placing them
+      - We can also use the 'span' keyword.
+      - For example, grid-column: 2 / span 2 will start from 2 and span 2 columns. 
+      - -1 represents the last column. We can do this instead of hardcoding the end.
+      Ex: grid-row: 1 / -1 would span the entire row. 
+
+
+
+
+      */
