@@ -933,6 +933,43 @@
       - By creating names, it is very very helpful for completing the layouts.
       - From there, we got to each section and specify the grid-column: full-start / col-start 6; for example.
 
+      Building the Features Section (1-2)
+      - Using emment notation, we can use the {} to specify text. For example, .section{feature1}
+      - Style svg's with the fill, width, and height.
+      - Extends are ways to group toghter items with the same propeties.
+      Ex: %heading {
+          font-family: $font-display;
+          font-weight: 400;
+        }
+
+        .heading-1 {
+          @extend %heading;
+        }
+      - The (-1) grid line is for the end of the explict grid, not the implict grid. This is important. 
+      -  grid-template-columns: repeat(autofit, minmax(25rem, 1fr)); this is a great way to create a responsive grid without media queries. 
+
+
+      Building the Story Section (1-2)
+      - &ldquo; &rdquo; are good html entities for using quotes. 
+      - Images keep their aspect ratio regardless of grid lines.
+      - z-index is important for overlapping things while using grid. 
+      
+
+      Building the Homes Section (1-2)
+      - 
+      
+
+      Building the Gallery Section (1-2)
+      - object-fit: cover; fills the container. The way to do this is to create a container, then add the img.
+      - When using object-fit, we have to specify the width and the height to 100% and display it as a block.
+      -
+      -
+      -
+      -
+      -
+      -
+
+
 
 
       */
