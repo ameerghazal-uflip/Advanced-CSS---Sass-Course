@@ -916,7 +916,22 @@
 
       SECTION 9 NEXTER PROJECT MASTER CSS GRID LAYOUT
 
+      Project Overview
+      - in the package.json() file for the deserver, we can specify what browser to open with by user (--browser=[nameofbrowser])
       
+
+      Building the Overall Layout (1-2)
+      - auto or min-content means that there will be enough space to fit the content in the grid display.
+      - vh or vw are some of the best units for adapting. 
+      -   grid-template-columns: repeat(8, minmax(min-content, 14rem));
+      - This says that we want 8 columns with a minmium width of min-content and a max of 14rem
+      Ex:  grid-template-columns:
+    [sidebir-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr)
+    [full-end];
+      - By creating names, it is very very helpful for completing the layouts.
+      - From there, we got to each section and specify the grid-column: full-start / col-start 6; for example.
 
 
 
